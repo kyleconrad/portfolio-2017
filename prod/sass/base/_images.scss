@@ -1,0 +1,70 @@
+/* IMAGES */
+
+img {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+
+	&.bordered {
+		border: 1px solid $dark;
+	}
+
+	&.lazyload {
+		// display: none;
+		background-color: rgba($dark,0.1);
+		background-image: url('/img/main/load.gif');
+		background-repeat: no-repeat;
+		background-size: 24px 24px;
+		background-position: center center;
+
+		@include breakpoint(mobile) {
+			background-size: 16px 16px;
+		}
+	}
+	&.lazyloaded {
+		background: $dark;
+	}
+
+	&.padded {
+		padding: 0.75rem 2.5rem 1.5rem;
+
+		@include breakpoint(mobile) {
+			padding: 0.7rem 0 1.5rem;
+		}
+	}
+}
+
+
+.nav-logo {
+	display: block;
+
+	width: 2rem;
+	height: 2rem;
+
+	padding: 7px 6px 0;
+
+	background: $dark;
+}
+
+.hero-main-logo {
+	width: 3.5rem;
+	height: 3.5rem;
+
+	padding: 0 8px;
+	margin-bottom: -2px;
+
+	background: $dark;
+}
+
+
+.work-logo {
+	width: 25rem;
+	max-width: 60%;
+
+	margin: 0 auto 6rem;
+}
+.work-hero {
+	margin-bottom: 5rem;
+}

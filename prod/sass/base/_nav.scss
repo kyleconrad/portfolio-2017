@@ -1,0 +1,29 @@
+/* NAVIGATION */
+
+nav {
+	@include display(flex);
+	@include flex-direction(row);
+	@include align-items(stretch);
+	@include justify-content(flex-start);
+	@include align-content(flex-start);
+	@include flex-wrap(wrap);
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+
+	width: 100%;
+
+	background: white;
+	border-bottom: 5px solid $dark;
+}
+
+.nav-link {
+	@include display(flex);
+	@include align-items(center);
+
+	height: 100%;
+
+	padding: 5px 20px;
+}

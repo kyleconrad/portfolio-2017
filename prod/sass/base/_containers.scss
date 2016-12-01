@@ -1,0 +1,61 @@
+/* CONTENT CONTAINERS */
+
+.detail-container {
+	@include display(flex);
+	@include flex-direction(row);
+	@include align-items(stretch);
+	@include justify-content(flex-start);
+	@include align-content(flex-start);
+	@include flex-wrap(wrap);
+
+	margin: auto;
+}
+.detail-block {
+	padding: 10px;
+}
+
+
+.detail-fill {
+	@include flex(100%);
+}
+.detail-half {
+	@include flex(1);
+}
+.detail-grow {
+	@include flex-grow(1);
+}
+
+
+.detail-border {
+	border: 1px solid $dark;
+}
+.detail-border-top {
+	border-top: 1px solid $dark;
+}
+.detail-border-top-large {
+	border-top-width: 10px;
+}
+.detail-border-bottom {
+	border-bottom: 1px solid $dark;
+}
+.detail-border-bottom-large {
+	border-bottom-width: 10px;
+}
+.detail-border-right {
+	border-right: 1px solid $dark;
+}
+.detail-border-left {
+	border-left: 1px solid $dark;
+}
+
+
+
+.detail-year {
+	@include display(flex);
+
+	padding: 10px 25px;
+}
+.detail-stripe {
+	background: url('/img/main/stripe.png');
+	background-size: 10px auto;
+}

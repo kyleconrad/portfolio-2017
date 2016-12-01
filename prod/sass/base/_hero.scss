@@ -1,0 +1,9 @@
+/* HERO */
+
+.hero-main {
+	@include display(flex);
+
+	height: 100vh;
+
+	background: white;
+}
