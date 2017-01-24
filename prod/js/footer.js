@@ -8,10 +8,10 @@ $(document).ready(function() {
 
 	// MOBILE / DESKTOP CLASSES + CHECKS
 	if ( isMobile ) {
-		$('body').addClass('mobile');
+		$( 'body' ).addClass( 'mobile' );
 	} else {
 		isDesktop = true;
-		$('body').addClass('desktop');
+		$( 'body' ).addClass( 'desktop' );
 	}
 
 
@@ -26,13 +26,42 @@ $(document).ready(function() {
 
 	// RESPONSIVE FUNCTIONS
 	function responsiveLoad() {
-		$('.full .half').fitVids();
+		$( '.full .half' ).fitVids();
 
-		$('p').flowtype({
+		$( 'p' ).flowtype({
 			minimum : 700,
 			maximum : 1800
 		});
 	}
+
+
+
+	// NAV MENU
+	var heroHeight = $( '.hero-main' ).height(),
+		scrollPos = $( window ).scrollTop(),
+		didScroll = false;
+
+	window.onscroll = scrollYes;
+
+	function scrollYes() {
+		didScroll = true;
+	}
+
+	setInterval(function() {
+	    if( didScroll ) {
+	        didScroll = false;
+	        heroHeight = $( '.hero-main' ).height();
+	        scrollPos = $( window ).scrollTop();
+
+	        if ( scrollPos > heroHeight ) {
+	        	$( 'nav' ).addClass( 'visible' );
+	        }
+	        else {
+	        	$( 'nav' ).removeClass( 'visible' );
+	        }
+	    }
+	}, 100);
+
 
 
 
@@ -62,9 +91,17 @@ $(document).ready(function() {
 
 	// WIDOW CONTROL
 	function widowControl() {
-		if (windowWidth > 640) {
-			$('h1, h2, h3, h4, p, .caption').each(function() {
-			    $(this).html($(this).html().replace(/\s((?=(([^\s<>]|<[^>]*>)+))\2)\s*$/,'&nbsp;$1'));
+		windowWidth = $( window ).width();
+
+		var widowElements = $( 'h1, h2, h3, h4, p, .caption' );
+
+		widowElements.each(function() {
+			$( this ).html($(this).html().replace(/&nbsp;/g, ' '));
+		});
+
+		if ( windowWidth > 640 ) {
+			widowElements.each(function() {
+			    $( this ).html($(this).html().replace(/\s((?=(([^\s<>]|<[^>]*>)+))\2)\s*$/,'&nbsp;$1'));
 			});
 		}
 	}
@@ -101,10 +138,10 @@ $(document).ready(function() {
 		// 	});
 		// });
 
-		$('.video-load').lazyload({
+		$( '.video-load' ).lazyload({
 			threshold: windowHeight * 2.25,
 			load: function(element){
-				$('.full, .half').fitVids();
+				$( '.full, .half' ).fitVids();
 			}
 		});
 	}

@@ -1,9 +1,9 @@
 /* Z-INDEX & LAYERS */
 
-.hero-main {
-	z-index: 20;
+nav {
+	z-index: 100;
 }
 
-nav {
-	z-index: 10;
+.hero-main {
+	z-index: 20;
 }
