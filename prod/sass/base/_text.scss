@@ -82,10 +82,6 @@ h4 {
 			content: '';
 
 			opacity: 0.25;
-
-			@include breakpoint(mobile) {
-				margin-top: -2px;
-			}
 		}
 
 		&:hover,

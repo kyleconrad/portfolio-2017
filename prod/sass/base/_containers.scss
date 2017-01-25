@@ -18,11 +18,14 @@
 }
 
 
+.detail-nowrap {
+	@include flex-wrap(nowrap);
+}
 .detail-fill {
 	@include flex(100%);
 }
 .detail-half {
-	@include flex(1);
+	@include flex(50%);
 }
 .detail-grow {
 	@include flex-grow(1);
