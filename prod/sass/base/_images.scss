@@ -56,6 +56,11 @@ img {
 	margin-bottom: -2px;
 
 	background: $dark;
+
+	// @include breakpoint(mobile) {
+	// 	width: 100%;
+	// 	height: auto;
+	// }
 }
 
 
@@ -64,7 +69,15 @@ img {
 	max-width: 60%;
 
 	margin: 0 auto 6rem;
+
+	@include breakpoint(mobile) {
+		margin-bottom: 4rem;
+	}
 }
 .work-hero {
 	margin-bottom: 5rem;
+
+	@include breakpoint(mobile) {
+		margin-bottom: 4rem;
+	}
 }

@@ -10,6 +10,10 @@
 
 	@include transform-origin(left top);
 	@include transform(rotate(-90deg));
+
+	.mobile & {
+		display: none;
+	}
 }
 .hero-digits {
 	@include calc(left, '100% + 10px');

@@ -5,4 +5,8 @@
 }
 .work-container {
 	padding-top: 7rem;
+
+	@include breakpoint(mobile) {
+		padding-top: 5rem;
+	}
 }

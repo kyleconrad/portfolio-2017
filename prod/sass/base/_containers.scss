@@ -59,3 +59,37 @@
 	background: url('/img/main/stripe.png');
 	background-size: 10px auto;
 }
+
+
+
+// @include breakpoint(mobile) {
+// 	.mobile-detail-1 {
+// 		@include order(1);
+// 	}
+// 	.mobile-detail-2 {
+// 		@include order(2);
+// 	}
+// 	.mobile-detail-3 {
+// 		@include order(3);
+// 	}
+// 	.mobile-detail-4 {
+// 		@include order(4);
+// 	}
+// 	.mobile-detail-5 {
+// 		@include order(5);
+// 	}
+// 	.mobile-detail-half {
+// 		@include flex-grow(0);
+// 		width: 50%;
+// 	}
+// 	.mobile-detail-full {
+// 		@include flex-grow(0);
+// 		width: 100%;
+// 	}
+// 	.mobile-detail-border-top {
+// 		border-top: 1px solid $dark;
+// 	}
+// 	.mobile-detail-border-bottom {
+// 		border-bottom: 1px solid $dark;
+// 	}
+// }
