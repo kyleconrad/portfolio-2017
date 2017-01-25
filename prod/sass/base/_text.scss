@@ -145,12 +145,25 @@ p {
 
 
 .nav-link {
+	background: white;
+	color: $dark;
+
 	font-family: "mono45-headline", monospace;
 	font-size: 0.75em;
 
 	letter-spacing: 0.25em;
 
 	text-decoration: none;
+
+	&:hover,
+	&:active {
+		background: $dark;
+		color: white;
+
+		span {
+			color: white;
+		}
+	}
 }
 
 
