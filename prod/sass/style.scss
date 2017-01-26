@@ -17,6 +17,13 @@ html {
 	-webkit-text-size-adjust: none;
 
 	background: white;
+
+	opacity: 0;
+	transition: opacity 0.25s;
+
+	&.wf-active {
+		opacity: 1;
+	}
 }
 body {
 	height: 100%;

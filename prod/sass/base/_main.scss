@@ -1,7 +1,20 @@
 /* MAIN AREAS */
 
-.work-block {
-	padding: 12rem 0;
+.work-block,
+.about-block {
+	// padding: 12rem 0;
+	padding: 40vh 0;
+	opacity: 0.75;
+	@include perspective(1000);
+	@include transform(translateZ(0));
+	transition: 0.25s;
+
+	&.active {
+		opacity: 1;
+	}
+}
+.about-block {
+	opacity: 1;
 }
 .work-container {
 	padding-top: 7rem;
