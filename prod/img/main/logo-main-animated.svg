@@ -4,7 +4,7 @@
 
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 380.769 486.521" enable-background="new 0 0 380.769 486.521" xml:space="preserve">
-	<script xmlns="http://www.w3.org/2000/svg" type="text/ecmascript" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../js/smil.user.js"/>
+	<script xmlns="http://www.w3.org/2000/svg" type="text/ecmascript" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../js/smil.js"/>
 
 	<g id="logo-pupil" fill="white">
 		<path d="M189.889,317.038c-14.427,0-26.164-11.737-26.164-26.164s11.737-26.164,26.164-26.164s26.164,11.737,26.164,26.164
@@ -58,5 +58,5 @@
 		H109.871c-23.1-15.602-51.609-34.075-63.339-41.643L190.384,97.025z M40.025,357.456c9.257,5.974,27.982,18.108,46.465,30.371h-64
 		L40.025,357.456z M294.585,387.827c18.521-12.432,37.073-24.687,46.033-30.59l17.661,30.59H294.585z"/>
 
-	<script xmlns="http://www.w3.org/2000/svg" type="text/ecmascript" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../js/smil.check.js"/>
+	<script xmlns="http://www.w3.org/2000/svg" type="text/ecmascript" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../js/smilcheck.js"/>
 </svg>

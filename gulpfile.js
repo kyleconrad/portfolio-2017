@@ -1,3 +1,6 @@
+require('events').EventEmitter.prototype._maxListeners = 100;
+
+
 var gulp = require('gulp'),
 
 	// Server & BrowserSync
@@ -114,41 +117,41 @@ gulp.task('minify', ['sass'], function() {
 });
 
 
-// Concat and uglify JavaScript, create revision file
-gulp.task('scripts', function() {
-	return es.merge(
-	  	gulp.src('./prod/js/*.js')
-	      	.pipe(uglify())
-	      	.pipe(gulp.dest('./dist/js'))
-	      	.pipe(rev())
-	      	.pipe(gulp.dest('./dist/js'))
-	      	.pipe(rev.manifest('./dist/rev-manifest.json', {
-				base: './dist',
-				merge: true
-			}))
-	      	.pipe(gulp.dest('./dist')),
-		gulp.src('./prod/js/lib/*.js')
-			.pipe(concat({
-				path: 'header.js',
-				cwd: ''
-			}))
-			.pipe(uglify({
-	      		mangle: false
-	      	}))
-	      	.pipe(gulp.dest('./dist/js'))
-	      	.pipe(rev())
-	      	.pipe(gulp.dest('./dist/js'))
-	      	.pipe(rev.manifest('./dist/rev-manifest.json', {
-				base: './dist/',
-				merge: true
-			}))
-			.pipe(gulp.dest('./dist'))
-  	);
+// Concat and uglify JavaScript, update revision file
+gulp.task('scripts', ['minify'], function() {
+ 	return gulp.src('./prod/js/*.js')
+      	.pipe(uglify())
+      	.pipe(gulp.dest('./dist/js'))
+      	.pipe(rev())
+      	.pipe(gulp.dest('./dist/js'))
+      	.pipe(rev.manifest('./dist/rev-manifest.json', {
+			base: './dist',
+			merge: true
+		}))
+      	.pipe(gulp.dest('./dist'))
+});
+gulp.task('header', ['scripts'], function() {
+	return gulp.src('./prod/js/lib/*.js')
+		.pipe(concat({
+			path: 'header.js',
+			cwd: ''
+		}))
+		.pipe(uglify({
+      		mangle: false
+      	}))
+      	.pipe(gulp.dest('./dist/js'))
+      	.pipe(rev())
+      	.pipe(gulp.dest('./dist/js'))
+      	.pipe(rev.manifest('./dist/rev-manifest.json', {
+			base: './dist/',
+			merge: true
+		}))
+		.pipe(gulp.dest('./dist'))
 });
 
 
 // Gzip CSS and JavaScript
-gulp.task('gzip', ['scripts'], function() {
+gulp.task('gzip', ['header'], function() {
 	return es.merge(
 		gulp.src('./dist/js/*.js')
 			.pipe(gzip())
@@ -161,7 +164,7 @@ gulp.task('gzip', ['scripts'], function() {
 
 
 // Build & replace HTML files, use revision file
-gulp.task('html', ['scripts'], function() {
+gulp.task('html', ['header'], function() {
 	var manifest = gulp.src('./dist/rev-manifest.json');
 
 	return es.merge(
@@ -245,4 +248,46 @@ gulp.task('build', ['remove'], function(){
 
 
 
+// Deployment to server
+gulp.task('deploy-do', function() {
+	rsync({
+		ssh: true,
+		src: 'dist/',
+		dest: '162.243.216.48:/var/www/kyleconrad.com/public_html',
+		recursive: true,
+		syncDest: true,
+		args: ['--verbose --progress'],
+		exclude: ['.DS_Store']
+	}, function(error, stdout, stderr, cmd) {
+		gutil.log(stdout);
+	});
+});
 
+var awsCreds = require('./aws.json');
+gulp.task('deploy-s3', function() {
+	var publisher = awspublish.create({
+		region: awsCreds.region,
+		params: {
+			Bucket: awsCreds.bucket
+		},
+		accessKeyId: awsCreds.key,
+		secretAccessKey: awsCreds.secret
+	});
+	var headers = {
+		'Cache-Control': 'max-age=315360000, no-transform, public',
+		'x-amz-acl': 'public-read'
+	};
+
+	return gulp.src('./dist/**')
+		.pipe(publisher.publish(headers))
+		.pipe(publisher.sync())
+		.pipe(publisher.cache())
+		.pipe(awspublish.reporter());
+});
+
+gulp.task('deploy', function(){
+	return gulp.start(
+		'deploy-do',
+		'deploy-s3'
+	);
+});
