@@ -27,7 +27,7 @@ var gulp = require('gulp'),
 	revReplace = require('gulp-rev-replace'),
 	sitemap = require('gulp-sitemap'),
 	gutil = require('gulp-util'),
-	rsync = require('rsyncwrapper').rsync,
+	rsync = require('rsyncwrapper'),
 	awspublish = require('gulp-awspublish');
 
 
