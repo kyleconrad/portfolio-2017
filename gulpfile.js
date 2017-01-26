@@ -10,7 +10,23 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename');
 
 	// Required for build & deploy
-
+	rimraf = require('rimraf'),
+	es = require('event-stream'),
+	cleanCSS = require('gulp-clean-css'),
+	concat = require('gulp-concat'),
+	uglify = require('gulp-uglify'),
+	usemin = require('gulp-usemin'),
+	inject = require('gulp-inject'),
+	replace = require('gulp-replace'),
+	imagemin = require('gulp-imagemin'),
+	gzip = require('gulp-gzip'),
+	rev = require('gulp-rev'),
+	revReplace = require('gulp-rev-replace'),
+	sitemap = require('gulp-sitemap'),
+	gutil = require('gulp-util'),
+	rsync = require('rsyncwrapper').rsync,
+	awspublish = require('gulp-awspublish');
+	
 
 
 // =================================================================================== //
