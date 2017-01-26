@@ -52,11 +52,18 @@ h2 {
 h3 {
 	font-size: 0.85em;
 
-	line-height: 1.1;
+	line-height: 1.2;
 
 	&.invisible {
 		opacity: 0;
 		visibility: hidden;
+	}
+
+	&.subhead {
+		color: rgba($dark, 0.25);
+		border-bottom: 1px solid rgba($dark, 0.25);
+		padding-bottom: 8px;
+		margin-bottom: 10px;
 	}
 }
 
@@ -99,6 +106,8 @@ h4 {
 }
 
 p {
+	margin-bottom: 1em;
+
 	font-family: Georgia, serif;
 	font-size: 1.2em;
 	
@@ -106,6 +115,9 @@ p {
 
 	color: $dark;
 
+	&:last-of-type {
+		margin-bottom: 2rem;
+	}
 	&:only-of-type {
 		margin-top: 2rem;
 		margin-bottom: 2rem;
@@ -164,6 +176,20 @@ p {
 			color: white;
 		}
 	}
+
+	&.inactive {
+		span {
+			color: rgba($dark,0.25);
+		}
+		&:hover,
+		&:active {
+			background: white;
+
+			span {
+				color: rgba($dark,0.25);
+			}
+		}
+	}
 }
 
 
@@ -198,6 +224,8 @@ p {
 
 	width: 100%;
 	height: 100%;
+
+	padding: 10px;
 
 	background: rgba($dark, 0.25);
 	color: $dark;

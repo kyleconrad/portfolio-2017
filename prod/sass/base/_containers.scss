@@ -27,6 +27,9 @@
 .detail-half {
 	@include flex(50%);
 }
+.detail-quarter {
+	@include flex(25%);
+}
 .detail-grow {
 	@include flex-grow(1);
 }
@@ -66,6 +69,16 @@
 	background-size: 10px auto;
 }
 
+
+@include breakpoint(mobile) {
+	.mobile-detail-fill {
+		@include flex(100%);
+	}
+	.mobile-detail-border-bottom {
+		border: 0;
+		border-bottom: 1px solid $dark;
+	}
+}
 
 
 // @include breakpoint(mobile) {
