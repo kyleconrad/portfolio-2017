@@ -164,7 +164,7 @@ gulp.task('gzip', ['header'], function() {
 
 
 // Build & replace HTML files, use revision file
-gulp.task('html', ['header'], function() {
+gulp.task('html-build', ['header'], function() {
 	var manifest = gulp.src('./dist/rev-manifest.json');
 
 	return es.merge(
@@ -236,7 +236,7 @@ gulp.task('build', ['remove'], function(){
 	return gulp.start(
 		'minify',
 		'gzip',
-		'html',
+		'html-build',
 		'images',
 		'sitemap'
 	);
