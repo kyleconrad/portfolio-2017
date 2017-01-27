@@ -18,12 +18,12 @@ html {
 
 	background: white;
 
-	opacity: 0;
-	transition: opacity 0.25s;
+	// opacity: 0;
+	// transition: opacity 0.25s;
 
-	&.wf-active {
-		opacity: 1;
-	}
+	// &.wf-active {
+	// 	opacity: 1;
+	// }
 }
 body {
 	height: 100%;
