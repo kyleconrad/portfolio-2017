@@ -4,9 +4,9 @@ nav {
 	@include display(flex);
 	@include flex-direction(row);
 	@include align-items(stretch);
-	@include justify-content(flex-start);
-	@include align-content(flex-start);
-	@include flex-wrap(wrap);
+	@include justify-content(space-between);
+	// @include align-content(flex-start);
+	// @include flex-wrap(wrap);
 
 	position: fixed;
 	top: 0;
@@ -30,12 +30,17 @@ nav {
 .nav-link {
 	@include display(flex);
 	@include align-items(center);
+	@include justify-content(center);
 
 	height: 100%;
 
-	padding: 5px 31px;
+	padding: 10px 31px;
 
 	&.inactive {
 		cursor: default;
+	}
+
+	@include breakpoint(mobile) {
+		height: 50px;
 	}
 }

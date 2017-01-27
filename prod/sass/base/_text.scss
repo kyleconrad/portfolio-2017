@@ -183,8 +183,7 @@ p {
 		span {
 			color: rgba($dark,0.25);
 		}
-		&:hover,
-		&:active {
+		&:hover {
 			background: white;
 
 			span {
@@ -203,6 +202,10 @@ p {
 	width: 100%;
 
 	padding: 0 10px;
+
+	@include breakpoint(mobile) {
+		height: 38px;
+	}
 }
 .headline-year {
 	margin: auto;

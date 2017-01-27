@@ -33,7 +33,7 @@ $(document).ready(function() {
 			maximum : 1800
 		});
 	}
-
+	
 
 
 	// NAV MENU
