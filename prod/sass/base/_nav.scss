@@ -32,15 +32,11 @@ nav {
 	@include align-items(center);
 	@include justify-content(center);
 
-	height: 100%;
+	height: calc( 2.5rem + 10px );
 
 	padding: 10px 31px;
 
 	&.inactive {
 		cursor: default;
-	}
-
-	@include breakpoint(mobile) {
-		height: 50px;
 	}
 }
